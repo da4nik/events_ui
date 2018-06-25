@@ -1,23 +1,31 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <div class="container">
+      <layout-header />
+      <layout-menu />
+      <router-view/>
+    </div>
+    <layout-footer />
   </div>
 </template>
 
 <script>
+import LayoutHeader from '@/components/layout/header'
+import LayoutMenu from '@/components/layout/top_menu'
+import LayoutFooter from '@/components/layout/footer'
+
 export default {
-  name: 'App'
+  name: 'App',
+  components: { LayoutHeader, LayoutMenu, LayoutFooter }
 }
 </script>
 
 <style lang='scss'>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
+@import './styles/custom-bootstrap.scss';
+
+.event-run { color: Green;}
+.event-triathlon { color: Magenta;}
+.event-rogain { color: Red;}
+.event-orienting { color: Brown;}
 </style>

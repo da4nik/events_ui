@@ -10,6 +10,8 @@ const distanceExamples = () => {
   }))
 }
 
+const eventTypes = ['run', 'triathlon', 'rogain', 'orienting']
+
 const exampleData = () => {
   return [...Array(5).keys()].map(i => {
     return {
@@ -21,7 +23,8 @@ const exampleData = () => {
       useGender: true,
       useAge: true,
       priceSteps: ['2018-01-01', '2018-02-01'],
-      distances: distanceExamples()
+      distances: distanceExamples(),
+      type: eventTypes[Math.floor(Math.random() * eventTypes.length)]
     }
   })
 }
@@ -40,6 +43,14 @@ export default {
   getters: {
     getByID: (state) => (id) => {
       return state.all.find(event => event.id.toString() === id.toString())
+    },
+    getReadableType: (state) => (event) => {
+      switch (event.type) {
+        case 'run': return 'Бег'
+        case 'triathlon': return 'Триатлон'
+        case 'rogain': return 'Рогейн'
+        case 'orienting': return 'Ориентирование'
+      }
     }
   },
   actions: {
