@@ -5,7 +5,11 @@
         <a href="#" class="text-muted">Подписаться</a>
       </div>
       <div class="col-4 text-center">
-        <a href="#" class="text-dark header-text">События</a>
+        <router-link
+          :to="{ name: 'root' }"
+          class='text-dark header-text'>
+            События
+        </router-link>
       </div>
       <div class="col-4 d-flex justify-content-end align-items-center">
         <a href="#" class="btn btn-sm btn-outline-secondary">Войти</a>

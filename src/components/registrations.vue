@@ -1,15 +1,42 @@
 <template>
-  <section id='registrations'>
-    <h1>Список участников</h1>
+  <section id='registrations' class='my-5'>
+    <h5>Список участников</h5>
+    <table class="table table-striped table-hover table-sm">
+      <thead>
+        <th scope='col'>#</th>
+        <th scope='col'>Имя</th>
+        <th scope='col'>Возраст</th>
+        <th scope='col'>Дистанция</th>
+      </thead>
+      <tbody>
+        <tr v-for='reg in registrations' :key='reg.id'>
+          <td scope='row'>{{ reg.id }}</td>
+          <td>{{ reg.name }}</td>
+          <td>{{ reg.age }}</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
   </section>
 </template>
 
 <script>
-export default {
+import { mapGetters } from 'vuex'
 
+export default {
+  props: {
+    event: {
+      type: Object,
+      required: true
+    }
+  },
+  computed: {
+    ...mapGetters({
+      getRegistrationsByEventID: 'registrations/getByEventID'
+    }),
+    registrations () {
+      return this.getRegistrationsByEventID(this.event.id)
+    }
+  }
 }
 </script>
-
-<style lang="scss" scoped>
-
-</style>

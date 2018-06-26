@@ -1,21 +1,28 @@
 <template>
-  <section id='event'>
-    <div v-show='isAdmin()'>
-      <router-link :to="{ name: 'editEvent', params: { eventID: event.id } }">
+  <section id='event' class='mt-3'>
+    <h2 class="title">{{ event.title }}</h2>
+    <div v-show='isAdmin()' class='actions pb-2 mb-3'>
+      <router-link
+        class='text-muted'
+        :to="{ name: 'editEvent', params: { eventID: event.id } }">
         Редактировать
       </router-link>
-      <router-link :to="{ name: 'process', params: { eventID: event.id } }">
+
+      <router-link
+        class='text-muted'
+        :to="{ name: 'process', params: { eventID: event.id } }">
         Судейство
       </router-link>
-      <router-link :to="{ name: 'checkpoints', params: { eventID: event.id } }">
+
+      <router-link
+        class='text-muted'
+        :to="{ name: 'checkpoints', params: { eventID: event.id } }">
         Отметки
       </router-link>
     </div>
-    <h1>{{ event.title }}</h1>
-    <p>{{ event.description }}</p>
-    <registrations />
+    <p class='my-3'>{{ event.description }}</p>
+    <registrations :event='event'/>
     <registration-form />
-    <router-link :to="{ name: 'root' }">К списку событий</router-link>
   </section>
 </template>
 
@@ -45,5 +52,7 @@ export default {
 </script>
 
 <style type='scss' scoped>
-
+.title {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
 </style>

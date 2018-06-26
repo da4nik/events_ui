@@ -1,7 +1,23 @@
+const registrationsExample = () => {
+  let result = {};
+
+  [...Array(5).keys()].forEach(i => {
+    result[i] = [...Array(5).keys()].map(n => {
+      return {
+        id: i + '-' + n,
+        name: 'Super Athlete #' + n,
+        age: 25,
+        gender: 'm'
+      }
+    })
+  })
+  return result
+}
+
 export default {
   namespaced: true,
   state: {
-    all: {}
+    all: registrationsExample()
   },
   mutations: {
     add (state, registration) {

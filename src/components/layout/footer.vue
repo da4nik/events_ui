@@ -1,5 +1,5 @@
 <template>
-  <footer>
+  <footer class='mt-5'>
     <p>by Maksim Stepanov</p>
     <p><a href="#">Вернуться наверх</a></p>
   </footer>
