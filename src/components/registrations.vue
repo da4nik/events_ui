@@ -11,7 +11,7 @@
       <tbody>
         <tr v-for='reg in registrations' :key='reg.id'>
           <td scope='row'>{{ reg.id }}</td>
-          <td>{{ reg.name }}</td>
+          <td>{{ reg.firstName }} {{ reg.lastName }}</td>
           <td>{{ reg.age }}</td>
           <td></td>
         </tr>

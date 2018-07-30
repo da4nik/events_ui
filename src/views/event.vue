@@ -21,8 +21,8 @@
       </router-link>
     </div>
     <p class='my-3'>{{ event.description }}</p>
+    <registration-form :event='event' />
     <registrations :event='event'/>
-    <registration-form />
   </section>
 </template>
 
@@ -46,7 +46,7 @@ export default {
     }
   },
   methods: {
-    isAdmin: () => { return true }
+    isAdmin: () => true
   }
 }
 </script>

@@ -7,7 +7,8 @@ const registrationsExample = () => {
         id: i + '-' + n,
         name: 'Super Athlete #' + n,
         age: 25,
-        gender: 'm'
+        gender: 'm',
+        eventID: 0
       }
     })
   })
@@ -21,7 +22,7 @@ export default {
   },
   mutations: {
     add (state, registration) {
-      state.all[registration.eventID] = registration
+      state.all[registration.eventID].push(registration)
     }
   },
   getters: {
@@ -37,9 +38,8 @@ export default {
 
       console.log('Loading registrations.')
     },
-    create ({ commit }, { eventID, registration }) {
+    create ({ commit }, registration) {
       // apiRequest.registrations.create
-      registration.eventID = eventID
       commit('add', registration)
     }
   }
